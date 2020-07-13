@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def index
-  	@books = Book.all #一覧表示するためにBookモデルの情報を全てくださいのall
+  	@books = Book.page(params[:page]).per(10) #一覧表示するためにBookモデルの情報を全てくださいのall
     @book = Book.new
     @user = current_user
   end
@@ -19,7 +19,7 @@ class BooksController < ApplicationController
   	if @book.save #入力されたデータをdbに保存する。
   		redirect_to @book, notice: "successfully created book!"#保存された場合の移動先を指定。
   	else
-  		@books = Book.all
+  		@books = Book.page(params[:page]).per(10)
       @user = current_user
   		render 'index'
   	end

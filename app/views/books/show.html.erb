@@ -23,8 +23,10 @@
 					</td>
 					<td><%= link_to @bookd.title, @bookd %></td>
 					<td><%= @bookd.body %></td>
+					<% if @bookd.user_id == current_user.id %>
 					<td><%= link_to "Edit",edit_book_path(@bookd), class: "btn-sm btn-success edit_book_#{@bookd.id}" %></td>
 					<td><%= link_to "Destroy",@bookd, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@bookd.id}" %></td>
+					<% end %>
 				</tr>
 		</table>
 

@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10">
+			<h2>Follow Users</h2>
+				<% if @users.count > 0 %>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>image</th>
+								<th>name</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody> 
+							<%= render '/users/index', users: @users %>
+						</tbody>
+  					</table>
+				<% else %>
+  					<p>ユーザーはいません</p>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>
